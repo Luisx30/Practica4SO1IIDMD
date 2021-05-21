@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 		exit(EXIT_FAILURE);
 	}
 
-	Matrix_Mult(&C, A, sizeMat);
+	Matrix_Mult(&C, A, B, sizeMat);
 
 	if (clock_gettime(CLOCK_MONOTONIC, &t1) != 0){
 		printf("Error al llamar clock_gettime para t1\n");
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
 
 	checkSumAll(&count, C, sizeMat);
 
-    printf("Funcion Multiplicacion no Paralela");
+    printf("\nFuncion Multiplicacion no Paralela");
     printf("\nThe addition of all components of the product A x B is %Lf",count);
 	printf("\nTiempo del proceso en Multiplicacion No paralela: %lf seconds", tiempoMedido);
     printf("\n\n");
