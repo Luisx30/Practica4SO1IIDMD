@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 		exit(EXIT_FAILURE);
 	}
 
-	Matrix_Mult(&C, A, B, sizeMat);
+	Matrix_Mult(&C, A, sizeMat);
 
 	if (clock_gettime(CLOCK_MONOTONIC, &t1) != 0){
 		printf("Error al llamar clock_gettime para t1\n");
@@ -89,9 +89,10 @@ int main(int argc, char** argv)
 
 	checkSumAll(&count, C, sizeMat);
 
-    printf("The addition of all components of the product A x B is %Lf\n",count);
-	printf("\nTiempo del proceso en Multiplicacion No paralela: %lf seconds\n", tiempoMedido);
-
+    printf("Funcion Multiplicacion no Paralela");
+    printf("\nThe addition of all components of the product A x B is %Lf",count);
+	printf("\nTiempo del proceso en Multiplicacion No paralela: %lf seconds", tiempoMedido);
+    printf("\n\n");
 
 	///B. Función de multiplicación paralela
 	if (clock_gettime(CLOCK_MONOTONIC, &t0) != 0)
@@ -113,8 +114,10 @@ int main(int argc, char** argv)
 
 	checkSumAll(&count, C, sizeMat);
 
-	printf("The addition of all components of the product A x B is %Lf\n",count);
-    printf("\nTiempo del proceso para multiplicacion Paralela: %lf seconds\n", tiempoMedido);
+    printf("Funcion Multiplicacion Paralela");
+	printf("\nThe addition of all components of the product A x B is %Lf",count);
+    printf("\nTiempo del proceso para multiplicacion Paralela: %lf seconds", tiempoMedido);
+    printf("\n\n");
 
 	///F. Función de máximo no paralela
 	if (clock_gettime(CLOCK_MONOTONIC, &t0) != 0){
@@ -132,8 +135,10 @@ int main(int argc, char** argv)
 	tiempoMedido = (double)(t1.tv_sec - t0.tv_sec) + ((double)(t1.tv_nsec - t0.tv_nsec) / 1000000000L);
 	float tiempomaxnoparalelo = tiempoMedido;
 
-	printf("The max value in  A  is %Lf\n",count);
-	printf("\nTiempo del proceso para maximo No paralela: %lf seconds\n", tiempoMedido);
+	printf("Funcion Maximo no Paralela");
+	printf("\nThe max value in  A  is %Lf",count);
+	printf("\nTiempo del proceso para maximo No paralela: %lf seconds", tiempoMedido);
+	printf("\n\n");
 
 	///G. Función de máximo paralela
 	if (clock_gettime(CLOCK_MONOTONIC, &t0) != 0){
@@ -151,8 +156,10 @@ int main(int argc, char** argv)
 	tiempoMedido = (double)(t1.tv_sec - t0.tv_sec) + ((double)(t1.tv_nsec - t0.tv_nsec) / 1000000000L);
 	float tiempomaxparalelo = tiempoMedido;
 
-    printf("The max value in  A  is %Lf\n",count);
-	printf("\nTiempo del proceso para maximo paralelo: %lf seconds\n", tiempoMedido);
+    printf("Funcion Maximo Paralela");
+    printf("\nThe max value in  A  is %Lf",count);
+	printf("\nTiempo del proceso para maximo paralelo: %lf seconds", tiempoMedido);
+	printf("\n\n");
 
 
 	///J. Presentación en consola de una tabla comparativa de tiempos de ejecución
