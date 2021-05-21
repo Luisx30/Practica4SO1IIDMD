@@ -104,6 +104,7 @@ Output: EXIT_FAILURE; EXIT_SUCCESS*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Inserte el código solicitado en la práctica aqui.
+///Funcion multiplicacion no paralela
 int Matrix_Mult(long double** result, long double* A, long double* B, int sizeMat){
 	int element, totalElem, filapos, columnapos,i;
     long double fila[sizeMat], columna[sizeMat];
@@ -124,7 +125,7 @@ int Matrix_Mult(long double** result, long double* A, long double* B, int sizeMa
 	}
 	return EXIT_SUCCESS;
 }
-
+///Funcion multiplicacion paralela
 int ompParallelMatrixMult(long double** result, long double* A, long double* B, int sizeMat){
     int element, totalElem, filapos, columnapos, chunk, i, numThreads;
     long double fila[sizeMat], columna[sizeMat];
@@ -150,6 +151,7 @@ int ompParallelMatrixMult(long double** result, long double* A, long double* B, 
 	return EXIT_SUCCESS;
 }
 
+///Funcion max no paralela
 int Matrix_Max(long double* counter, long double* M, int sizeMat){
 	int element, totalElem;
 	if(!counter || !M){
@@ -166,6 +168,7 @@ int Matrix_Max(long double* counter, long double* M, int sizeMat){
 	return EXIT_SUCCESS;
 }
 
+///Funcion max paralela
 int ompParallelMatrixMax(long double* counter, long double* M, int sizeMat){
 	int element, totalElem, chunk;
 	int numThreads = getNumberOfCPUs();
@@ -185,3 +188,4 @@ int ompParallelMatrixMax(long double* counter, long double* M, int sizeMat){
 	*counter = count;
 	return EXIT_SUCCESS;
 }
+
